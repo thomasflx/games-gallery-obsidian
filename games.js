@@ -62,6 +62,7 @@ async function start(params, settings) {
       storesLinks: selectedShow.stores && selectedShow.stores.length > 0 ? linkifyList(selectedShow.stores.map(p => p.store.name), "Stores") : "N/A",
       esrbRating: selectedShow.esrb_rating && selectedShow.esrb_rating.name ? selectedShow.esrb_rating.name : "N/A",
       fileName: replaceIllegalFileNameCharactersInString(selectedShow.name),
+      playtime: selectedShow.playtime ? selectedShow : "N/A"
     };
   } catch(err) {
     notice(err.message);
