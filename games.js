@@ -57,9 +57,9 @@ async function start(params, settings) {
 
     QuickAdd.variables = {
       ...selectedShow,
-      genresLinks: linkifyList(selectedShow.genres.map(g => g.name), "Genres"),
-      platformsLinks: linkifyList(selectedShow.parent_platforms.map(p => p.platform.name), "Platforms"),
-      storesLinks: linkifyList(selectedShow.stores.map(p => p.store.name), "Stores"),
+      genresLinks: selectedShow.genres && selectedShow.genres.length > 0 ? linkifyList(selectedShow.genres.map(g => g.name), "Genres") : "N/A",
+      platformsLinks: selectedShow.parent_platforms && selectedShow.parent_platforms.length > 0 ? linkifyList(selectedShow.parent_platforms.map(p => p.platform.name), "Platforms") : "N/A",
+      storesLinks: selectedShow.stores && selectedShow.stores.length > 0 ? linkifyList(selectedShow.stores.map(p => p.store.name), "Stores") : "N/A",
       esrbRating: selectedShow.esrb_rating && selectedShow.esrb_rating.name ? selectedShow.esrb_rating.name : "N/A",
       fileName: replaceIllegalFileNameCharactersInString(selectedShow.name),
     };
